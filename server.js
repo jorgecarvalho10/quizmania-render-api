@@ -12,7 +12,11 @@ import path from "node:path";
 const execFileAsync = promisify(execFile);
 
 const app = express();
-app.use(helmet({ crossOriginResourcePolicy: false }));
+app.use(helmet({ 
+  crossOriginResourcePolicy: false,
+  frameguard: false,
+  contentSecurityPolicy: false
+}));
 app.use(morgan("combined"));
 app.use(express.json({ limit: "2mb" }));
 const allowedOrigins = (process.env.ALLOWED_ORIGINS || "")
