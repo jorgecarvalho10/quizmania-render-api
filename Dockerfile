@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends ffmpeg \
 WORKDIR /app
 
 COPY package.json ./
-RUN cat package.json
+
 RUN npm install --omit=dev
 
 COPY server.js ./
